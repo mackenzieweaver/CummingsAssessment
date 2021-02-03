@@ -171,6 +171,7 @@
     <Compile Include="Controllers\BondTransfersController.cs" />
     <Compile Include="Controllers\DefendantsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IndemnitorsController.cs" />
     <Compile Include="Controllers\JailsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProvidingAgenciesController.cs" />
@@ -206,11 +207,16 @@
     <Compile Include="Migrations\202102032237512_defendant.Designer.cs">
       <DependentUpon>202102032237512_defendant.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202102032256142_indemnitors.cs" />
+    <Compile Include="Migrations\202102032256142_indemnitors.Designer.cs">
+      <DependentUpon>202102032256142_indemnitors.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\BondTransfer.cs" />
     <Compile Include="Models\Defendant.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Indemnitor.cs" />
     <Compile Include="Models\Jail.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\ProvidingAgency.cs" />
@@ -299,6 +305,11 @@
     <Content Include="Views\Defendants\Details.cshtml" />
     <Content Include="Views\Defendants\Edit.cshtml" />
     <Content Include="Views\Defendants\Index.cshtml" />
+    <Content Include="Views\Indemnitors\Create.cshtml" />
+    <Content Include="Views\Indemnitors\Delete.cshtml" />
+    <Content Include="Views\Indemnitors\Details.cshtml" />
+    <Content Include="Views\Indemnitors\Edit.cshtml" />
+    <Content Include="Views\Indemnitors\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -337,6 +348,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202102032237512_defendant.resx">
       <DependentUpon>202102032237512_defendant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102032256142_indemnitors.resx">
+      <DependentUpon>202102032256142_indemnitors.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

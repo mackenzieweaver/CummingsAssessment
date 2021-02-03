@@ -39,5 +39,7 @@ namespace CummingsAssessment.Models
         public System.Data.Entity.DbSet<CummingsAssessment.Models.RequestingAgency> RequestingAgencies { get; set; }
 
         public System.Data.Entity.DbSet<CummingsAssessment.Models.Defendant> Defendants { get; set; }
+
+        public System.Data.Entity.DbSet<CummingsAssessment.Models.Indemnitor> Indemnitors { get; set; }
     }
 }
