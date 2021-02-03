@@ -168,6 +168,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AgreementsController.cs" />
     <Compile Include="Controllers\BondTransfersController.cs" />
     <Compile Include="Controllers\DefendantsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -211,8 +212,17 @@
     <Compile Include="Migrations\202102032256142_indemnitors.Designer.cs">
       <DependentUpon>202102032256142_indemnitors.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202102032302589_agreements.cs" />
+    <Compile Include="Migrations\202102032302589_agreements.Designer.cs">
+      <DependentUpon>202102032302589_agreements.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102032307410_agreementFKs.cs" />
+    <Compile Include="Migrations\202102032307410_agreementFKs.Designer.cs">
+      <DependentUpon>202102032307410_agreementFKs.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Agreement.cs" />
     <Compile Include="Models\BondTransfer.cs" />
     <Compile Include="Models\Defendant.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -310,6 +320,11 @@
     <Content Include="Views\Indemnitors\Details.cshtml" />
     <Content Include="Views\Indemnitors\Edit.cshtml" />
     <Content Include="Views\Indemnitors\Index.cshtml" />
+    <Content Include="Views\Agreements\Create.cshtml" />
+    <Content Include="Views\Agreements\Delete.cshtml" />
+    <Content Include="Views\Agreements\Details.cshtml" />
+    <Content Include="Views\Agreements\Edit.cshtml" />
+    <Content Include="Views\Agreements\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -351,6 +366,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202102032256142_indemnitors.resx">
       <DependentUpon>202102032256142_indemnitors.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102032302589_agreements.resx">
+      <DependentUpon>202102032302589_agreements.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102032307410_agreementFKs.resx">
+      <DependentUpon>202102032307410_agreementFKs.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
