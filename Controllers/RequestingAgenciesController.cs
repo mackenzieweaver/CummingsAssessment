@@ -10,107 +10,107 @@ using CummingsAssessment.Models;
 
 namespace CummingsAssessment.Controllers
 {
-    public class AgenciesController : Controller
+    public class RequestingAgenciesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Agencies
+        // GET: RequestingAgencies
         public ActionResult Index()
         {
-            return View(db.Agencies.ToList());
+            return View(db.RequestingAgencies.ToList());
         }
 
-        // GET: Agencies/Details/5
+        // GET: RequestingAgencies/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Agency agency = db.Agencies.Find(id);
-            if (agency == null)
+            RequestingAgency requestingAgency = db.RequestingAgencies.Find(id);
+            if (requestingAgency == null)
             {
                 return HttpNotFound();
             }
-            return View(agency);
+            return View(requestingAgency);
         }
 
-        // GET: Agencies/Create
+        // GET: RequestingAgencies/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Agencies/Create
+        // POST: RequestingAgencies/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,AgentName,AgencyName,Date,MobileNumber,City,State,Country")] Agency agency)
+        public ActionResult Create([Bind(Include = "Id,AgencyName,MobileNumber,City,State,Country")] RequestingAgency requestingAgency)
         {
             if (ModelState.IsValid)
             {
-                db.Agencies.Add(agency);
+                db.RequestingAgencies.Add(requestingAgency);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(agency);
+            return View(requestingAgency);
         }
 
-        // GET: Agencies/Edit/5
+        // GET: RequestingAgencies/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Agency agency = db.Agencies.Find(id);
-            if (agency == null)
+            RequestingAgency requestingAgency = db.RequestingAgencies.Find(id);
+            if (requestingAgency == null)
             {
                 return HttpNotFound();
             }
-            return View(agency);
+            return View(requestingAgency);
         }
 
-        // POST: Agencies/Edit/5
+        // POST: RequestingAgencies/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,AgentName,AgencyName,Date,MobileNumber,City,State,Country")] Agency agency)
+        public ActionResult Edit([Bind(Include = "Id,AgencyName,MobileNumber,City,State,Country")] RequestingAgency requestingAgency)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(agency).State = EntityState.Modified;
+                db.Entry(requestingAgency).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(agency);
+            return View(requestingAgency);
         }
 
-        // GET: Agencies/Delete/5
+        // GET: RequestingAgencies/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Agency agency = db.Agencies.Find(id);
-            if (agency == null)
+            RequestingAgency requestingAgency = db.RequestingAgencies.Find(id);
+            if (requestingAgency == null)
             {
                 return HttpNotFound();
             }
-            return View(agency);
+            return View(requestingAgency);
         }
 
-        // POST: Agencies/Delete/5
+        // POST: RequestingAgencies/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Agency agency = db.Agencies.Find(id);
-            db.Agencies.Remove(agency);
+            RequestingAgency requestingAgency = db.RequestingAgencies.Find(id);
+            db.RequestingAgencies.Remove(requestingAgency);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

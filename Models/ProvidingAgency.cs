@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
-using System.Web.Mvc;
 
 namespace CummingsAssessment.Models
 {
-    public class Agency
+    public class ProvidingAgency
     {
         public int Id { get; set; }
 

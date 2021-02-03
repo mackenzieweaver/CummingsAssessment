@@ -30,10 +30,12 @@ namespace CummingsAssessment.Models
             return new ApplicationDbContext();
         }
 
-        public System.Data.Entity.DbSet<CummingsAssessment.Models.Agency> Agencies { get; set; }
+        public System.Data.Entity.DbSet<CummingsAssessment.Models.ProvidingAgency> ProvidingAgencies { get; set; }
 
         public System.Data.Entity.DbSet<CummingsAssessment.Models.Jail> Jails { get; set; }
 
         public System.Data.Entity.DbSet<CummingsAssessment.Models.BondTransfer> BondTransfers { get; set; }
+
+        public System.Data.Entity.DbSet<CummingsAssessment.Models.RequestingAgency> RequestingAgencies { get; set; }
     }
 }
