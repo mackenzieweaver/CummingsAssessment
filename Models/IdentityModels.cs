@@ -37,5 +37,7 @@ namespace CummingsAssessment.Models
         public System.Data.Entity.DbSet<CummingsAssessment.Models.BondTransfer> BondTransfers { get; set; }
 
         public System.Data.Entity.DbSet<CummingsAssessment.Models.RequestingAgency> RequestingAgencies { get; set; }
+
+        public System.Data.Entity.DbSet<CummingsAssessment.Models.Defendant> Defendants { get; set; }
     }
 }
