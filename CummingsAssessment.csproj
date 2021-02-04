@@ -223,6 +223,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Agreement.cs" />
+    <Compile Include="Models\AgreementViewModel.cs" />
     <Compile Include="Models\BondTransfer.cs" />
     <Compile Include="Models\Defendant.cs" />
     <Compile Include="Models\IdentityModels.cs" />

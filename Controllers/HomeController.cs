@@ -22,7 +22,7 @@ namespace CummingsAssessment.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Agreement(Agreement model)
+        public ActionResult Agreement(AgreementViewModel model)
         {
             return View();
         }
