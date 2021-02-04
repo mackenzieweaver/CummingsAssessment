@@ -243,6 +243,7 @@
     <Content Include="Content\styles.css" />
     <Content Include="Content\svg\c-corp-color.svg" />
     <Content Include="Content\svg\handcuffs.svg" />
+    <Content Include="Content\svg\iguarantee.svg" />
     <Content Include="Content\svg\i_warning.svg" />
     <Content Include="Content\svg\people.svg" />
     <Content Include="Content\svg\person.svg" />

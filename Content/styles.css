@@ -1,7 +1,11 @@
-﻿.redheader {
+﻿body {
+    font-family: Arial;
+}
+
+.redheader {
     text-transform: uppercase;
-    font-size: 24px;
-    letter-spacing: 3px;
+    font-size: 28px;
+    letter-spacing: 2px;
     color: #8f061e;
     font-weight: bold;
 }
@@ -17,9 +21,116 @@
     font-weight: bold;
     border: 1px solid gray;
     border-radius: 3px;
+    padding: 0.5rem 3.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.go {
+    color: white;
+    background-color: #8f061e;
+    font-weight: bold;
+    border: 1px solid gray;
+    border-radius: 3px;
     padding: 0.25rem 2.5rem;
     text-transform: uppercase;
     letter-spacing: 1px;
     font-size: 18px;
     cursor: pointer;
+    
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+::-webkit-input-placeholder {
+    color: black !important;
+}
+
+.red::-webkit-input-placeholder {
+    color: #8f061e !important;
+}
+
+.bold::-webkit-input-placeholder {
+    font-weight: bold !important;
+}
+
+.form-control {
+    border: 1px solid black !important;
+    border-radius: 0px !important;
+}
+
+#DisclaimerSection {
+    border-left: 5px solid #8f061e;
+}
+
+.disclaimer {
+    font-weight: bold !important;
+    font-size: 16px;
+}
+
+#ProvidingAgencyInformation > div {
+    padding-top: 1rem;
+    margin-bottom: 1rem;
+    background-color: #f4f5f6;
+}
+
+#JailInformation > div {
+    padding-top: 1rem;
+    margin-bottom: 1rem;
+    background-color: #faf9f3;
+}
+
+#BondTransferInformation > div {
+    padding-top: 1rem;
+    margin-bottom: 1rem;
+    background-color: #f4f5f6;
+}
+
+#RequestingAgencyInformation > div {
+    padding-top: 1rem;
+    margin-bottom: 1rem;
+    background-color: #faf9f3;
+}
+
+#DefendantInformation > div {
+    padding-top: 1rem;
+    margin-bottom: 1rem;
+    background-color: #f3faf9;
+}
+
+#IndemnitorInformation > div {
+    padding-top: 1rem;
+    margin-bottom: 1rem;
+    background-color: #faf9f3;
+}
+
+#AdditionalInformation > div {
+    padding-top: 1rem;
+    margin-bottom: 1rem;
+    background-color: #faf3f4;
+}
+
+#providingAgencyIcon {
+    margin-top: calc(3rem + 28px + .5rem + 4px);
+    margin-right: 4px;
+}
+
+@media only screen and (max-width: 1198px) {
+    #providingAgencyIcon {
+        margin-right: 20px;
+    }
+}
+
+@media only screen and (max-width: 990px) {
+    #providingAgencyIcon {
+        margin-right: 38px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    #providingAgencyIcon {
+        display: none;
+    }
 }
