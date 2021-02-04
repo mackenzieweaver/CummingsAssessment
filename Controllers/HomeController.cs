@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CummingsAssessment.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,6 +10,19 @@ namespace CummingsAssessment.Controllers
     public class HomeController : Controller
     {
         public ActionResult Index()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult Agreement()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Agreement(Agreement model)
         {
             return View();
         }

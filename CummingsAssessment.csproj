@@ -239,6 +239,13 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\styles.css" />
+    <Content Include="Content\svg\c-corp-color.svg" />
+    <Content Include="Content\svg\handcuffs.svg" />
+    <Content Include="Content\svg\i_warning.svg" />
+    <Content Include="Content\svg\people.svg" />
+    <Content Include="Content\svg\person.svg" />
+    <Content Include="Content\svg\stepped-building.svg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -325,6 +332,7 @@
     <Content Include="Views\Agreements\Details.cshtml" />
     <Content Include="Views\Agreements\Edit.cshtml" />
     <Content Include="Views\Agreements\Index.cshtml" />
+    <Content Include="Views\Home\Agreement.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

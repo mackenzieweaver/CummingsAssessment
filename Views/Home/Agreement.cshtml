@@ -1,0 +1,53 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Agreement</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="~/Content/styles.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        @using (Html.BeginForm("Agreement", "Home", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="row">
+                <h1 class="redheader">Providing Agency Information</h1>
+            </div>
+            <div class="row">
+                <h1 class="redheader">Jail Information</h1>
+            </div>
+            <div class="row">
+                <h1 class="redheader">Bond Transfer Information</h1>
+            </div>
+            <div class="row">
+                <h1 class="redheader">Requesting Agency Information</h1>
+            </div>
+            <div class="row">
+                <h1 class="redheader">Defendant Information</h1>
+            </div>
+            <div class="row">
+                <h1 class="redheader">Indemnitor Information</h1>
+            </div>
+            <div class="row">
+                <h1 class="redheader">Additional Information (<span class="cap">Holds, Immigration</span>)</h1>
+            </div>
+            <div class="row justify-content-center">
+                <input class="submit" type="submit" value="Submit" />
+            </div>
+        }
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
