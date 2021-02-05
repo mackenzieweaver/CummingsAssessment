@@ -36,11 +36,12 @@ function populateDropdown(data, box, dropdown) {
     dropdown.innerHTML = '';
     let html = '';
     data.forEach(val => {
-        html += `<button type="button" class="a dropdown-item" onclick="populateBox(${box}, '${val}')">${val}</button>`;
+        html += `<button type="button" class="a dropdown-item" onclick="populateBox( '${box.id}', '${val}' )" style="cursor: pointer;">${val}</button>`;
     });
     dropdown.innerHTML = html;
 }
 
-function populateBox(box, val){
-    box.value = val;
+function populateBox(id, val) {
+    let element = document.getElementById(id);
+    element.value = val;
 }
