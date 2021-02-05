@@ -143,7 +143,7 @@
                                         @Html.ValidationMessageFor(model => model.ProvidingAgency.City, "", new { @class = "text-danger" })
                                         <div class="input-group-append">
                                             <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
-                                            <div class="dropdown-menu dropdown-menu-right">
+                                            <div id="providingAgencyCityDropdown" class="dropdown-menu dropdown-menu-right">
                                                 <input class="a dropdown-item" href="#" value="Type in the box..." style="cursor: pointer;" />
                                             </div>
                                         </div>
@@ -155,7 +155,7 @@
                                         @Html.ValidationMessageFor(model => model.ProvidingAgency.State, "", new { @class = "text-danger" })
                                         <div class="input-group-append">
                                             <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
-                                            <div class="dropdown-menu dropdown-menu-right">
+                                            <div id="providingAgencyStateDropdown" class="dropdown-menu dropdown-menu-right">
                                                 <input class="a dropdown-item" href="#" value="Type in the box..." style="cursor: pointer;" />
                                             </div>
                                         </div>
@@ -167,7 +167,7 @@
                                         @Html.ValidationMessageFor(model => model.ProvidingAgency.County, "", new { @class = "text-danger" })
                                         <div class="input-group-append">
                                             <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
-                                            <div class="dropdown-menu dropdown-menu-right">
+                                            <div id="providingAgencyCountyDropdown" class="dropdown-menu dropdown-menu-right">
                                                 <input class="a dropdown-item" href="#" value="Type in the box..." style="cursor: pointer;" />
                                             </div>
                                         </div>
