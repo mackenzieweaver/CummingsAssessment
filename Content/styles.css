@@ -137,7 +137,13 @@ footer > svg {
     margin-right: 4px;
 }
 
-@media only screen and (max-width: 1198px) {
+#checkmarkIcon {
+    margin-top: 16px;
+    position: relative;
+    left: 20px;
+}
+
+@media only screen and (max-width: 1200px) {
     #providingAgencyIcon, 
     #jailIcon, 
     #bondTransferIcon, 
@@ -146,6 +152,10 @@ footer > svg {
     #indemnitorIcon, 
     #additionalInformationIcon {
         margin-right: 20px;
+    }
+
+    #checkmarkIcon {
+        left: 8px;
     }
 }
 
@@ -159,6 +169,10 @@ footer > svg {
     #additionalInformationIcon {
         margin-right: 38px;
     }
+
+    #checkmarkIcon {
+        left: -8px;
+    }
 }
 
 @media only screen and (max-width: 768px) {
@@ -168,7 +182,8 @@ footer > svg {
     #requestingAgencyIcon,
     #defendantIcon,
     #indemnitorIcon,
-    #additionalInformationIcon {
+    #additionalInformationIcon,
+    #checkmarkIcon {
         display: none;
     }
 }
