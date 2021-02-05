@@ -17,7 +17,7 @@ PROVIDING_AGENCY_CITY.addEventListener('change', async function () {
     let options = await getData("city", city);
     options.forEach(option => states.push(option.state));
 
-    // put options in dropdown
+    // put options in state dropdown
     populateDropdown(states, PROVIDING_AGENCY_STATE, PROVIDING_AGENCY_STATE_DROPDOWN);
 });
 
@@ -70,6 +70,22 @@ PROVIDING_AGENCY_STATE.addEventListener('change', async function () {
     let options = await getData("state", state);
     options.forEach(option => cities.push(option.city));
 
-    // put options in dropdown
+    // put options in city dropdown
     populateDropdown(cities, PROVIDING_AGENCY_CITY, PROVIDING_AGENCY_CITY_DROPDOWN);
+
+    /*===============================================================================================*/
+    
+    (async () => {
+        const where = encodeURIComponent(JSON.stringify({ "state": state}));
+        const response = await fetch(`https://parseapi.back4app.com/classes/Uscounties_Area?count=1&limit=1000&order=countyName&keys=countyName&where=${where}`, {
+                headers: {
+                    'X-Parse-Application-Id': 'kPKisfUbHPMcZmQreFDTZlpwt0449vmvDr9CmcHy', // This is your app's application id
+                    'X-Parse-REST-API-Key': 'HHiODsZUVi2ZWNiMSlrSeQEf6cMx2202b6PjK4Mn', // This is your app's REST API key
+                }});
+        let data = await response.json().then(d => { return d });
+        let counties = [];
+        data.results.forEach(x => counties.push(x.countyName));
+
+        populateDropdown(counties, PROVIDING_AGENCY_COUNTY, PROVIDING_AGENCY_COUNTY_DROPDOWN);
+    })();
 });
