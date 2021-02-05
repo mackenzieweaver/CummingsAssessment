@@ -2,6 +2,10 @@
     font-family: Arial;
 }
 
+h1 {
+    margin-bottom: 0 !important;
+}
+
 .redheader {
     text-transform: uppercase;
     font-size: 28px;
@@ -83,7 +87,8 @@
 }
 
 #BondTransferInformation > div {
-    padding-top: 1rem;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
     margin-bottom: 1rem;
     background-color: #f4f5f6;
 }
@@ -112,19 +117,14 @@
     background-color: #faf3f4;
 }
 
-#providingAgencyIcon {
-    margin-top: calc(3rem + 28px + .5rem + 4px);
-    margin-right: 4px;
-}
-
-svg {
-    width: 80px !important;
-    height: 80px !important;
-}
-
 footer > svg {
     width: 250pt !important;
     height: 125pt !important;
+}
+
+#providingAgencyIcon {
+    margin-top: calc(3rem + 28px + 4px);
+    margin-right: 4px;
 }
 
 #jailIcon,
@@ -133,13 +133,14 @@ footer > svg {
 #defendantIcon,
 #indemnitorIcon,
 #additionalInformationIcon {
-    margin-top: 40px;
+    margin-top: 32px;
     margin-right: 4px;
 }
 
 @media only screen and (max-width: 1198px) {
     #providingAgencyIcon, 
-    #jailIcon, #bondTransferIcon, 
+    #jailIcon, 
+    #bondTransferIcon, 
     #requestingAgencyIcon, 
     #defendantIcon, 
     #indemnitorIcon, 
