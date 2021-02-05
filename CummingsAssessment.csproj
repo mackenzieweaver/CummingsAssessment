@@ -168,15 +168,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\AgreementsController.cs" />
-    <Compile Include="Controllers\BondTransfersController.cs" />
-    <Compile Include="Controllers\DefendantsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\IndemnitorsController.cs" />
-    <Compile Include="Controllers\JailsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\ProvidingAgenciesController.cs" />
-    <Compile Include="Controllers\RequestingAgenciesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -219,6 +212,10 @@
     <Compile Include="Migrations\202102032307410_agreementFKs.cs" />
     <Compile Include="Migrations\202102032307410_agreementFKs.Designer.cs">
       <DependentUpon>202102032307410_agreementFKs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102050112468_County_not_Country.cs" />
+    <Compile Include="Migrations\202102050112468_County_not_Country.Designer.cs">
+      <DependentUpon>202102050112468_County_not_Country.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -300,41 +297,6 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Jails\Create.cshtml" />
-    <Content Include="Views\Jails\Delete.cshtml" />
-    <Content Include="Views\Jails\Details.cshtml" />
-    <Content Include="Views\Jails\Edit.cshtml" />
-    <Content Include="Views\Jails\Index.cshtml" />
-    <Content Include="Views\BondTransfers\Create.cshtml" />
-    <Content Include="Views\BondTransfers\Delete.cshtml" />
-    <Content Include="Views\BondTransfers\Details.cshtml" />
-    <Content Include="Views\BondTransfers\Edit.cshtml" />
-    <Content Include="Views\BondTransfers\Index.cshtml" />
-    <Content Include="Views\ProvidingAgencies\Create.cshtml" />
-    <Content Include="Views\ProvidingAgencies\Delete.cshtml" />
-    <Content Include="Views\ProvidingAgencies\Details.cshtml" />
-    <Content Include="Views\ProvidingAgencies\Edit.cshtml" />
-    <Content Include="Views\ProvidingAgencies\Index.cshtml" />
-    <Content Include="Views\RequestingAgencies\Create.cshtml" />
-    <Content Include="Views\RequestingAgencies\Delete.cshtml" />
-    <Content Include="Views\RequestingAgencies\Details.cshtml" />
-    <Content Include="Views\RequestingAgencies\Edit.cshtml" />
-    <Content Include="Views\RequestingAgencies\Index.cshtml" />
-    <Content Include="Views\Defendants\Create.cshtml" />
-    <Content Include="Views\Defendants\Delete.cshtml" />
-    <Content Include="Views\Defendants\Details.cshtml" />
-    <Content Include="Views\Defendants\Edit.cshtml" />
-    <Content Include="Views\Defendants\Index.cshtml" />
-    <Content Include="Views\Indemnitors\Create.cshtml" />
-    <Content Include="Views\Indemnitors\Delete.cshtml" />
-    <Content Include="Views\Indemnitors\Details.cshtml" />
-    <Content Include="Views\Indemnitors\Edit.cshtml" />
-    <Content Include="Views\Indemnitors\Index.cshtml" />
-    <Content Include="Views\Agreements\Create.cshtml" />
-    <Content Include="Views\Agreements\Delete.cshtml" />
-    <Content Include="Views\Agreements\Details.cshtml" />
-    <Content Include="Views\Agreements\Edit.cshtml" />
-    <Content Include="Views\Agreements\Index.cshtml" />
     <Content Include="Views\Home\Agreement.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -383,6 +345,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202102032307410_agreementFKs.resx">
       <DependentUpon>202102032307410_agreementFKs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102050112468_County_not_Country.resx">
+      <DependentUpon>202102050112468_County_not_Country.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
