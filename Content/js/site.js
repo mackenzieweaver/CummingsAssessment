@@ -9,7 +9,7 @@ const PROVIDING_AGENCY_COUNTY = document.getElementById('ProvidingAgency_County'
 const PROVIDING_AGENCY_COUNTY_DROPDOWN = document.getElementById('providingAgencyCountyDropdown');
 
 // when user has input the city
-PROVIDING_AGENCY_CITY.addEventListener('blur', async function () {
+PROVIDING_AGENCY_CITY.addEventListener('change', async function () {
     let city = normalizeInput(this.value);
     this.value = city;
 
