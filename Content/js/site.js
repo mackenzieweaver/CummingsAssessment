@@ -8,6 +8,12 @@ const PROVIDING_AGENCY_STATE_DROPDOWN = document.getElementById('providingAgency
 const PROVIDING_AGENCY_COUNTY = document.getElementById('ProvidingAgency_County');
 const PROVIDING_AGENCY_COUNTY_DROPDOWN = document.getElementById('providingAgencyCountyDropdown');
 
+//initially disable state and county inputs
+$(function () {
+    PROVIDING_AGENCY_STATE.disabled = true;
+    PROVIDING_AGENCY_COUNTY.disabled = true;
+});
+
 // when user has input the city
 PROVIDING_AGENCY_CITY.addEventListener('change', async function () {
     let city = normalizeInput(this.value);
@@ -39,7 +45,7 @@ async function getData(type, search) {
     return await fetch('https://gist.githubusercontent.com/mackenzieweaver/c848adf78ebac73a38ffa38f1d65370e/raw/70544e6dac9fbf435d0fae68e44fdd6f0c26b940/gistfile1.txt')
         .then(res => res.json())
         .then(d => {
-            return d.filter(objs => objs[type] == search);
+            return d.filter(objs => objs[type].includes(search));
         });
 }
 
@@ -70,13 +76,16 @@ PROVIDING_AGENCY_STATE.addEventListener('change', async function () {
     let options = await getData("state", state);
     options.forEach(option => cities.push(option.city));
 
+    // only give options that meet whats in the city box already
+    cities = cities.filter(c => c.includes(PROVIDING_AGENCY_CITY.value));
+
     // put options in city dropdown
     populateDropdown(cities, PROVIDING_AGENCY_CITY, PROVIDING_AGENCY_CITY_DROPDOWN);
 
     /*===============================================================================================*/
-    
+    // COUNTIES uses seperate api endpoint
     (async () => {
-        const where = encodeURIComponent(JSON.stringify({ "state": state}));
+        const where = encodeURIComponent(JSON.stringify({ "state": state }));
         const response = await fetch(`https://parseapi.back4app.com/classes/Uscounties_Area?count=1&limit=1000&order=countyName&keys=countyName&where=${where}`, {
                 headers: {
                     'X-Parse-Application-Id': 'kPKisfUbHPMcZmQreFDTZlpwt0449vmvDr9CmcHy', // This is your app's application id

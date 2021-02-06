@@ -148,14 +148,12 @@ footer > svg {
     overflow-y: scroll !important;
 }
 
+.form-control:disabled {
+    background-color: white !important;
+}
+
 @media only screen and (max-width: 1200px) {
-    #providingAgencyIcon, 
-    #jailIcon, 
-    #bondTransferIcon, 
-    #requestingAgencyIcon, 
-    #defendantIcon, 
-    #indemnitorIcon, 
-    #additionalInformationIcon {
+    #providingAgencyIcon, #jailIcon, #bondTransferIcon, #requestingAgencyIcon, #defendantIcon, #indemnitorIcon, #additionalInformationIcon {
         margin-right: 20px;
     }
 
