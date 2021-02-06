@@ -22,9 +22,17 @@ PROVIDING_AGENCY_CITY.addEventListener('change', async function () {
     let states = [];
     let options = await getData("city", city);
     options.forEach(option => states.push(option.state));
-
     // put options in state dropdown
     populateDropdown(states, PROVIDING_AGENCY_STATE, PROVIDING_AGENCY_STATE_DROPDOWN);
+
+    // if no state yet, fill cities dropdown with all possible cities regardless of state
+    if (!PROVIDING_AGENCY_STATE.value) {
+        let cities = [];
+        let options = await getData("city", PROVIDING_AGENCY_CITY.value);
+        options.forEach(option => cities.push(option.city));
+        cities = cities.filter(c => c.includes(PROVIDING_AGENCY_CITY.value));
+        populateDropdown(cities, PROVIDING_AGENCY_CITY, PROVIDING_AGENCY_CITY_DROPDOWN);
+    }
 });
 
 function normalizeInput(str) {
