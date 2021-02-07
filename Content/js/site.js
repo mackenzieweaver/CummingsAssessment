@@ -14,7 +14,14 @@ $(function () {
     PROVIDING_AGENCY_COUNTY.disabled = true;
 });
 
-PROVIDING_AGENCY_CITY.addEventListener('change', async function () {
+PROVIDING_AGENCY_CITY.addEventListener('keyup', async function () {
+    if (this.value && PROVIDING_AGENCY_STATE.value && PROVIDING_AGENCY_COUNTY.value) {
+        PROVIDING_AGENCY_STATE.value = '';
+        PROVIDING_AGENCY_STATE_DROPDOWN.innerHTML = '<input class="a dropdown-item" href="#" value="Fill out city..." style="cursor: pointer;" disabled />';
+        PROVIDING_AGENCY_COUNTY.value = '';
+        PROVIDING_AGENCY_COUNTY_DROPDOWN.innerHTML = '<input class="a dropdown-item" href="#" value="Fill out city & state..." style="cursor: pointer;" disabled />';
+    }
+
     let city = normalizeInput(this.value);
     this.value = city;
 
@@ -32,9 +39,12 @@ PROVIDING_AGENCY_CITY.addEventListener('change', async function () {
         cities = cities.filter(c => c.includes(PROVIDING_AGENCY_CITY.value));
         populateDropdown(cities, PROVIDING_AGENCY_CITY, PROVIDING_AGENCY_CITY_DROPDOWN);
     }
+
+    // COUNTIES uses seperate api endpoint
+    await setCounties(PROVIDING_AGENCY_CITY.value, PROVIDING_AGENCY_STATE.value, PROVIDING_AGENCY_COUNTY, PROVIDING_AGENCY_COUNTY_DROPDOWN);
 });
 
-PROVIDING_AGENCY_STATE.addEventListener('change', async function () {
+PROVIDING_AGENCY_STATE.addEventListener('keyup', async function () {
     let state = normalizeInput(this.value);
     this.value = state;
     let cities = [];
@@ -108,6 +118,6 @@ function populateBox(id, val) {
     element.value = val;
 
     // value changed so let dom know of event
-    var event = new Event('change');
+    var event = new Event('keyup');
     element.dispatchEvent(event);
 }
