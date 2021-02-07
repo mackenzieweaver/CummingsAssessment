@@ -32,6 +32,11 @@ const INDEMNITOR_ETHNICITY = document.getElementById('Indemnitor_Ethnicity');
 $(function () {
     PROVIDING_AGENCY_STATE.disabled = true;
     PROVIDING_AGENCY_COUNTY.disabled = true;
+    JAIL_STATE.disabled = true;
+    JAIL_COUNTY.disabled = true;
+    REQUESTING_AGENCY_STATE.disabled = true;
+    REQUESTING_AGENCY_COUNTY.disabled = true;
+
     INDEMNITOR_GENDER.disabled = true;
     INDEMNITOR_ETHNICITY.disabled = true;
 });
