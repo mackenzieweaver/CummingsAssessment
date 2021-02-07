@@ -1,12 +1,26 @@
 ﻿// city
 const PROVIDING_AGENCY_CITY = document.getElementById('ProvidingAgency_City');
 const PROVIDING_AGENCY_CITY_DROPDOWN = document.getElementById('providingAgencyCityDropdown');
+const JAIL_CITY = document.getElementById('Jail_City');
+const JAIL_CITY_DROPDOWN = document.getElementById('jailCityDropdown');
+const REQUESTING_AGENCY_CITY = document.getElementById('RequestingAgency_City');
+const REQUESTING_AGENCY_CITY_DROPDOWN = document.getElementById('requestingAgencyCityDropdown');
+
 // state
 const PROVIDING_AGENCY_STATE = document.getElementById('ProvidingAgency_State');
 const PROVIDING_AGENCY_STATE_DROPDOWN = document.getElementById('providingAgencyStateDropdown');
+const JAIL_STATE = document.getElementById('Jail_State');
+const JAIL_STATE_DROPDOWN = document.getElementById('jailStateDropdown');
+const REQUESTING_AGENCY_STATE = document.getElementById('RequestingAgency_State');
+const REQUESTING_AGENCY_STATE_DROPDOWN = document.getElementById('requestingAgencyStateDropdown');
+
 // county
 const PROVIDING_AGENCY_COUNTY = document.getElementById('ProvidingAgency_County');
 const PROVIDING_AGENCY_COUNTY_DROPDOWN = document.getElementById('providingAgencyCountyDropdown');
+const JAIL_COUNTY = document.getElementById('Jail_County');
+const JAIL_COUNTY_DROPDOWN = document.getElementById('jailCountyDropdown');
+const REQUESTING_AGENCY_COUNTY = document.getElementById('RequestingAgency_County');
+const REQUESTING_AGENCY_COUNTY_DROPDOWN = document.getElementById('requestingAgencyCountyDropdown');
 
 // gender
 const INDEMNITOR_GENDER = document.getElementById('Indemnitor_Gender');

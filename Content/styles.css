@@ -37,8 +37,8 @@ h1 {
     background-color: #8f061e;
     font-weight: bold;
     border: 1px solid gray;
-    border-radius: 3px;
-    padding: 0.25rem 2.5rem;
+    border-radius: 5px;
+    padding: 0.25rem 1rem !important;
     text-transform: uppercase;
     letter-spacing: 1px;
     font-size: 18px;
@@ -157,6 +157,20 @@ footer > svg {
     border-bottom-right-radius: 5px !important;
     padding-left: 8px !important;
     padding-right: 8px !important;
+}
+
+#ProvidingAgency_City,
+#ProvidingAgency_State,
+#ProvidingAgency_County,
+#Jail_City,
+#Jail_State,
+#Jail_County,
+#RequestingAgency_City,
+#RequestingAgency_State,
+#RequestingAgency_County,
+#BondTransfer_SerialNumber {
+    border-top-left-radius: 5px !important;
+    border-bottom-left-radius: 5px !important;
 }
 
 #copyright {

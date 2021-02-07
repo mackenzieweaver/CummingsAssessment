@@ -245,20 +245,38 @@
 
                             <div class="row">
                                 <div class="col-md">
-                                    <div class="form-group">
+                                    <div class="form-group input-group">
                                         @Html.EditorFor(model => model.Jail.City, new { htmlAttributes = new { @class = "form-control", @placeholder = "City" } })
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+                                            <div id="jailCityDropdown" class="dropdown-menu dropdown-menu-right">
+                                                <input class="a dropdown-item" href="#" value="Start typing..." style="cursor: pointer;" disabled />
+                                            </div>
+                                        </div>
                                         @Html.ValidationMessageFor(model => model.Jail.City, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
                                 <div class="col-md-2 pl-md-0">
-                                    <div class="form-group">
+                                    <div class="form-group input-group">
                                         @Html.EditorFor(model => model.Jail.State, new { htmlAttributes = new { @class = "form-control", @placeholder = "State" } })
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+                                            <div id="jailStateDropdown" class="dropdown-menu dropdown-menu-right">
+                                                <input class="a dropdown-item" href="#" value="Fill out city..." style="cursor: pointer;" disabled />
+                                            </div>
+                                        </div>
                                         @Html.ValidationMessageFor(model => model.Jail.State, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
                                 <div class="col-md pl-md-0">
-                                    <div class="form-group">
+                                    <div class="form-group input-group">
                                         @Html.EditorFor(model => model.Jail.County, new { htmlAttributes = new { @class = "form-control", @placeholder = "County" } })
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+                                            <div id="jailCountyDropdown" class="dropdown-menu dropdown-menu-right">
+                                                <input class="a dropdown-item" href="#" value="Fill out city & state..." style="cursor: pointer;" disabled />
+                                            </div>
+                                        </div>
                                         @Html.ValidationMessageFor(model => model.Jail.County, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
@@ -348,8 +366,13 @@ l22 42 744 0 c716 0 744 -1 753 -19 6 -10 8 -21 5 -23 -2 -3 2 -11 11 -18 8
                                     </div>
                                 </div>
                                 <div class="col-md pl-md-0">
-                                    <div class="form-group">
+                                    <div class="form-group input-group">
                                         @Html.EditorFor(model => model.BondTransfer.SerialNumber, new { htmlAttributes = new { @class = "form-control", @placeholder = "Serial Number" } })
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+                                            <div id="bondTransferDropdown" class="dropdown-menu dropdown-menu-right">
+                                            </div>
+                                        </div>
                                         @Html.ValidationMessageFor(model => model.BondTransfer.SerialNumber, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
@@ -474,20 +497,38 @@ l22 42 744 0 c716 0 744 -1 753 -19 6 -10 8 -21 5 -23 -2 -3 2 -11 11 -18 8
                             </div>
                             <div class="row">
                                 <div class="col-md">
-                                    <div class="form-group">
+                                    <div class="form-group input-group">
                                         @Html.EditorFor(model => model.RequestingAgency.City, new { htmlAttributes = new { @class = "form-control", @placeholder = "City" } })
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+                                            <div id="requestingAgencyCityDropdown" class="dropdown-menu dropdown-menu-right">
+                                                <input class="a dropdown-item" href="#" value="Start typing..." style="cursor: pointer;" disabled />
+                                            </div>
+                                        </div>
                                         @Html.ValidationMessageFor(model => model.RequestingAgency.City, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
                                 <div class="col-md-2 pl-md-0">
-                                    <div class="form-group">
+                                    <div class="form-group input-group">
                                         @Html.EditorFor(model => model.RequestingAgency.State, new { htmlAttributes = new { @class = "form-control", @placeholder = "State" } })
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+                                            <div id="requestingAgencyStateDropdown" class="dropdown-menu dropdown-menu-right">
+                                                <input class="a dropdown-item" href="#" value="Fill out city..." style="cursor: pointer;" disabled />
+                                            </div>
+                                        </div>
                                         @Html.ValidationMessageFor(model => model.RequestingAgency.State, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
                                 <div class="col-md pl-md-0">
-                                    <div class="form-group">
+                                    <div class="form-group input-group">
                                         @Html.EditorFor(model => model.RequestingAgency.County, new { htmlAttributes = new { @class = "form-control", @placeholder = "County" } })
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+                                            <div id="requestingAgencyCountyDropdown" class="dropdown-menu dropdown-menu-right">
+                                                <input class="a dropdown-item" href="#" value="Fill out city & state..." style="cursor: pointer;" disabled />
+                                            </div>
+                                        </div>
                                         @Html.ValidationMessageFor(model => model.RequestingAgency.County, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
