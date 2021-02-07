@@ -159,6 +159,15 @@ footer > svg {
     padding-right: 8px !important;
 }
 
+#copyright {
+    position: relative;
+    left: 50px;
+    bottom: 15px;
+    opacity: .5;
+    font-size: 12px;
+    font-weight: bold;
+}
+
 @media only screen and (max-width: 1200px) {
     #providingAgencyIcon, #jailIcon, #bondTransferIcon, #requestingAgencyIcon, #defendantIcon, #indemnitorIcon, #additionalInformationIcon {
         margin-right: 20px;
@@ -193,7 +202,14 @@ footer > svg {
     #defendantIcon,
     #indemnitorIcon,
     #additionalInformationIcon,
-    #checkmarkIcon {
+    #checkmarkIcon,
+    #dollarSign {
         display: none;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    #bondPadding {
+        padding-left: 0;
     }
 }
