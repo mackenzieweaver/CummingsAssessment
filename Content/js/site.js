@@ -24,7 +24,6 @@ const REQUESTING_AGENCY_COUNTY_DROPDOWN = document.getElementById('requestingAge
 
 // gender
 const INDEMNITOR_GENDER = document.getElementById('Indemnitor_Gender');
-
 // ethnicity
 const INDEMNITOR_ETHNICITY = document.getElementById('Indemnitor_Ethnicity');
 
@@ -48,6 +47,8 @@ $(function () {
     DEFENDANT_DATE.bold;
 });
 
+/* ========================================== DATES ============================================ */
+
 PROVIDING_AGENCY_DATE.addEventListener('focus', function () {
     this.type = 'date';
     this.nextElementSibling.remove();
@@ -61,7 +62,9 @@ INDEMNITOR_DATE.addEventListener('focus', function () {
     this.type = 'date';
 });
 
+/* ============================================ CITY / STATE / COUNTY ========================================= */
 
+// providing agency
 PROVIDING_AGENCY_CITY.addEventListener('keyup', async function () {
     if (this.value && PROVIDING_AGENCY_STATE.value && PROVIDING_AGENCY_COUNTY.value) {
         PROVIDING_AGENCY_STATE.value = '';
@@ -70,33 +73,33 @@ PROVIDING_AGENCY_CITY.addEventListener('keyup', async function () {
         PROVIDING_AGENCY_COUNTY_DROPDOWN.innerHTML = '<input class="a dropdown-item" href="#" value="Fill out city & state..." style="cursor: pointer;" disabled />';
     }
 
-    let city = normalizeInput(this.value);
+    let city = capitalizeInput(this.value);
     this.value = city;
 
     let states = [];
-    let options = await getData("city", city);
+    let options = await getCityOrState("city", city);
     options.forEach(option => states.push(option.state));
+
     // put options in state dropdown
     populateDropdown(states, PROVIDING_AGENCY_STATE, PROVIDING_AGENCY_STATE_DROPDOWN);
 
     // if no state yet, fill cities dropdown with all possible cities regardless of state
     if (!PROVIDING_AGENCY_STATE.value) {
         let cities = [];
-        let options = await getData("city", PROVIDING_AGENCY_CITY.value);
+        let options = await getCityOrState("city", PROVIDING_AGENCY_CITY.value);
         options.forEach(option => cities.push(option.city));
         cities = cities.filter(c => c.includes(PROVIDING_AGENCY_CITY.value));
         populateDropdown(cities, PROVIDING_AGENCY_CITY, PROVIDING_AGENCY_CITY_DROPDOWN);
     }
 
     // COUNTIES uses seperate api endpoint
-    await setCounties(PROVIDING_AGENCY_CITY.value, PROVIDING_AGENCY_STATE.value, PROVIDING_AGENCY_COUNTY, PROVIDING_AGENCY_COUNTY_DROPDOWN);
+    if(PROVIDING_AGENCY_STATE.value) await setCounties(PROVIDING_AGENCY_CITY.value, PROVIDING_AGENCY_STATE.value, PROVIDING_AGENCY_COUNTY, PROVIDING_AGENCY_COUNTY_DROPDOWN);
 });
-
 PROVIDING_AGENCY_STATE.addEventListener('keyup', async function () {
-    let state = normalizeInput(this.value);
+    let state = capitalizeInput(this.value);
     this.value = state;
     let cities = [];
-    let options = await getData("state", state);
+    let options = await getCityOrState("state", state);
     options.forEach(option => cities.push(option.city));
 
     // only give options that meet whats in the city box already
@@ -111,7 +114,60 @@ PROVIDING_AGENCY_STATE.addEventListener('keyup', async function () {
     await setCounties(PROVIDING_AGENCY_CITY.value, PROVIDING_AGENCY_STATE.value, PROVIDING_AGENCY_COUNTY, PROVIDING_AGENCY_COUNTY_DROPDOWN);
 });
 
-/* ========================================================================================== */
+// jail
+JAIL_CITY.addEventListener('keyup', async function () {
+    if (this.value && JAIL_STATE.value && JAIL_COUNTY.value) {
+        JAIL_STATE.value = '';
+        JAIL_STATE_DROPDOWN.innerHTML = '<input class="a dropdown-item" href="#" value="Fill out city..." style="cursor: pointer;" disabled />';
+        JAIL_COUNTY.value = '';
+        JAIL_COUNTY_DROPDOWN.innerHTML = '<input class="a dropdown-item" href="#" value="Fill out city & state..." style="cursor: pointer;" disabled />';
+    }
+
+    let city = capitalizeInput(this.value);
+    this.value = city;
+
+    let states = [];
+    let options = await getCityOrState("city", city);
+    options.forEach(option => states.push(option.state));
+
+    // put options in state dropdown
+    populateDropdown(states, JAIL_STATE, JAIL_STATE_DROPDOWN);
+
+    // if no state yet, fill cities dropdown with all possible cities regardless of state
+    if (!JAIL_STATE.value) {
+        let cities = [];
+        let options = await getCityOrState("city", JAIL_CITY.value);
+        options.forEach(option => cities.push(option.city));
+        cities = cities.filter(c => c.includes(JAIL_CITY.value));
+        populateDropdown(cities, JAIL_CITY, JAIL_CITY_DROPDOWN);
+    }
+
+    // COUNTIES uses seperate api endpoint
+    if (JAIL_STATE.value) await setCounties(JAIL_CITY.value, JAIL_STATE.value, JAIL_COUNTY, JAIL_COUNTY_DROPDOWN);
+});
+JAIL_STATE.addEventListener('keyup', async function () {
+    let state = capitalizeInput(this.value);
+    this.value = state;
+    let cities = [];
+    let options = await getCityOrState("state", state);
+    options.forEach(option => cities.push(option.city));
+
+    // only give options that meet whats in the city box already
+    cities = cities.filter(c => c.includes(JAIL_CITY.value));
+
+    // put options in city dropdown
+    populateDropdown(cities, JAIL_CITY, JAIL_CITY_DROPDOWN);
+
+    /*====================================*/
+
+    // COUNTIES uses seperate api endpoint
+    await setCounties(JAIL_CITY.value, JAIL_STATE.value, JAIL_COUNTY, JAIL_COUNTY_DROPDOWN);
+});
+
+// requesting agency
+
+
+/* =================================== UTILITIES =============================================== */
 
 async function setCounties(city, state, box, dropdown) {
     city = strToCounty(city);
@@ -131,7 +187,7 @@ function strToCounty(str) {
     return str.toLowerCase().split(' ').join('%20');
 }
 
-function normalizeInput(str) {
+function capitalizeInput(str) {
     // Capitalize first letter, lower case the rest
     // handle multiple words
 
@@ -143,7 +199,7 @@ function normalizeInput(str) {
     return str;
 }
 
-async function getData(type, search) {
+async function getCityOrState(type, search) {
     // search "db" ~ 6000 cities in various states
     return await fetch('https://gist.githubusercontent.com/mackenzieweaver/c848adf78ebac73a38ffa38f1d65370e/raw/70544e6dac9fbf435d0fae68e44fdd6f0c26b940/gistfile1.txt')
         .then(res => res.json())
