@@ -3,8 +3,10 @@
 ## To Run
 Click the green 'Code' button in the top right to download. Open with visual studio and click run or press F5 to run locally.
  
+ ## The website
 ![Cummings Assessment website](https://i.imgur.com/KXH0tPL.jpg)
 
+## The database design
 ![MS SQL server Database design](https://i.imgur.com/9zzeMDO.jpg)
 
 ## Backend
