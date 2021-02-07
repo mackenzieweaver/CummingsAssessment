@@ -638,15 +638,33 @@ l22 42 744 0 c716 0 744 -1 753 -19 6 -10 8 -21 5 -23 -2 -3 2 -11 11 -18 8
                                 </div>
 
                                 <div class="col-md-3">
-                                    <div class="form-group pl-md-0">
+                                    <div class="form-group input-group pl-md-0">
                                         @Html.EditorFor(model => model.Indemnitor.Gender, new { htmlAttributes = new { @class = "form-control", @placeholder = "Gender" } })
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+                                            <div id="indemnitorGenderDropdown" class="dropdown-menu dropdown-menu-right">
+                                                <button type="button" class="a dropdown-item" onclick="setGender('Male')">Male</button>
+                                                <button type="button" class="a dropdown-item" onclick="setGender('Female')">Female</button>
+                                            </div>
+                                        </div>
                                         @Html.ValidationMessageFor(model => model.Indemnitor.Gender, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
 
                                 <div class="col-md">
-                                    <div class="form-group">
+                                    <div class="form-group input-group">
                                         @Html.EditorFor(model => model.Indemnitor.Ethnicity, new { htmlAttributes = new { @class = "form-control", @placeholder = "Ethnicity" } })
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+                                            <div id="indemnitorGenderDropdown" class="dropdown-menu dropdown-menu-right">
+                                                <button type="button" class="a dropdown-item" onclick="setEthnicity('American Indian or Alaska Native')">American Indian or Alaska Native</button>
+                                                <button type="button" class="a dropdown-item" onclick="setEthnicity('Asian')">Asian</button>
+                                                <button type="button" class="a dropdown-item" onclick="setEthnicity('Black or African American')">Black or African American</button>
+                                                <button type="button" class="a dropdown-item" onclick="setEthnicity('Hispanic or Latino')">Hispanic or Latino</button>
+                                                <button type="button" class="a dropdown-item" onclick="setEthnicity('Native Hawaiian or Other Pacific Islander')">Native Hawaiian or Other Pacific Islander</button>
+                                                <button type="button" class="a dropdown-item" onclick="setEthnicity('White')">White</button>
+                                            </div>
+                                        </div>
                                         @Html.ValidationMessageFor(model => model.Indemnitor.Ethnicity, "", new { @class = "text-danger" })
                                     </div>
                                 </div>

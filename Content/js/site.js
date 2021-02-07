@@ -8,10 +8,18 @@ const PROVIDING_AGENCY_STATE_DROPDOWN = document.getElementById('providingAgency
 const PROVIDING_AGENCY_COUNTY = document.getElementById('ProvidingAgency_County');
 const PROVIDING_AGENCY_COUNTY_DROPDOWN = document.getElementById('providingAgencyCountyDropdown');
 
+// gender
+const INDEMNITOR_GENDER = document.getElementById('Indemnitor_Gender');
+
+// ethnicity
+const INDEMNITOR_ETHNICITY = document.getElementById('Indemnitor_Ethnicity');
+
 //initially disable state and county inputs
 $(function () {
     PROVIDING_AGENCY_STATE.disabled = true;
     PROVIDING_AGENCY_COUNTY.disabled = true;
+    INDEMNITOR_GENDER.disabled = true;
+    INDEMNITOR_ETHNICITY.disabled = true;
 });
 
 PROVIDING_AGENCY_CITY.addEventListener('keyup', async function () {
@@ -120,4 +128,12 @@ function populateBox(id, val) {
     // value changed so let dom know of event
     var event = new Event('keyup');
     element.dispatchEvent(event);
+}
+
+function setGender(val) {
+    INDEMNITOR_GENDER.value = val;
+}
+
+function setEthnicity(val) {
+    INDEMNITOR_ETHNICITY.value = val;
 }
