@@ -182,6 +182,11 @@ footer > svg {
     font-weight: bold;
 }
 
+.calendar {
+    background-color: #ccc !important;
+    border-radius: 0 !important;
+}
+
 @media only screen and (max-width: 1200px) {
     #providingAgencyIcon, #jailIcon, #bondTransferIcon, #requestingAgencyIcon, #defendantIcon, #indemnitorIcon, #additionalInformationIcon {
         margin-right: 20px;

@@ -28,6 +28,11 @@ const INDEMNITOR_GENDER = document.getElementById('Indemnitor_Gender');
 // ethnicity
 const INDEMNITOR_ETHNICITY = document.getElementById('Indemnitor_Ethnicity');
 
+// DATES
+const PROVIDING_AGENCY_DATE = document.getElementById('ProvidingAgency_Date');
+const DEFENDANT_DATE = document.getElementById('Defendant_DOB');
+const INDEMNITOR_DATE = document.getElementById('Indemnitor_DOB');
+
 //initially disable state and county inputs
 $(function () {
     PROVIDING_AGENCY_STATE.disabled = true;
@@ -39,7 +44,23 @@ $(function () {
 
     INDEMNITOR_GENDER.disabled = true;
     INDEMNITOR_ETHNICITY.disabled = true;
+
+    DEFENDANT_DATE.bold;
 });
+
+PROVIDING_AGENCY_DATE.addEventListener('focus', function () {
+    this.type = 'date';
+    this.nextElementSibling.remove();
+});
+
+DEFENDANT_DATE.addEventListener('focus', function () {
+    this.type = 'date';
+});
+
+INDEMNITOR_DATE.addEventListener('focus', function () {
+    this.type = 'date';
+});
+
 
 PROVIDING_AGENCY_CITY.addEventListener('keyup', async function () {
     if (this.value && PROVIDING_AGENCY_STATE.value && PROVIDING_AGENCY_COUNTY.value) {
