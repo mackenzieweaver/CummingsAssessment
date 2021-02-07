@@ -1,4 +1,4 @@
-# CummingsAssessment
+# Cummings Assessment
 
 ## To Run
 Click the green 'Code' button in the top right to download. Open with visual studio and click run or press F5 to run locally.
