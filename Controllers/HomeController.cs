@@ -27,26 +27,33 @@ namespace CummingsAssessment.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Agreement(AgreementViewModel model)
         {
-            db.ProvidingAgencies.Add(model.ProvidingAgency);
-            db.Jails.Add(model.Jail);
-            db.BondTransfers.Add(model.BondTransfer);
-            db.RequestingAgencies.Add(model.RequestingAgency);
-            db.Defendants.Add(model.Defendant);
-            db.Indemnitors.Add(model.Indemnitor);
-            await db.SaveChangesAsync();
-
-            db.Agreements.Add(new Agreement
+            if (ModelState.IsValid)
             {
-                ProvidingAgencyId = model.ProvidingAgency.Id,
-                JailId = model.Jail.Id,
-                BondTransferId = model.BondTransfer.Id,
-                RequestingAgencyId = model.RequestingAgency.Id,
-                DefendantId = model.Defendant.Id,
-                IndemnitorId = model.Indemnitor.Id,
-                AdditionalInformation = model.AdditionalInformation
-            });
-            await db.SaveChangesAsync();
-            return RedirectToAction(nameof(Agreement));
+                db.ProvidingAgencies.Add(model.ProvidingAgency);
+                db.Jails.Add(model.Jail);
+                db.BondTransfers.Add(model.BondTransfer);
+                db.RequestingAgencies.Add(model.RequestingAgency);
+                db.Defendants.Add(model.Defendant);
+                db.Indemnitors.Add(model.Indemnitor);
+                await db.SaveChangesAsync();
+
+                db.Agreements.Add(new Agreement
+                {
+                    ProvidingAgencyId = model.ProvidingAgency.Id,
+                    JailId = model.Jail.Id,
+                    BondTransferId = model.BondTransfer.Id,
+                    RequestingAgencyId = model.RequestingAgency.Id,
+                    DefendantId = model.Defendant.Id,
+                    IndemnitorId = model.Indemnitor.Id,
+                    AdditionalInformation = model.AdditionalInformation
+                });
+                await db.SaveChangesAsync();
+                return RedirectToAction(nameof(Agreement));
+            }
+            else
+            {
+                return View();
+            }
         }
 
         public ActionResult About()
