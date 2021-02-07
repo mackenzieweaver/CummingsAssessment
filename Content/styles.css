@@ -152,6 +152,13 @@ footer > svg {
     background-color: white !important;
 }
 
+.dropdown-toggle{
+    border-top-right-radius: 5px !important;
+    border-bottom-right-radius: 5px !important;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+}
+
 @media only screen and (max-width: 1200px) {
     #providingAgencyIcon, #jailIcon, #bondTransferIcon, #requestingAgencyIcon, #defendantIcon, #indemnitorIcon, #additionalInformationIcon {
         margin-right: 20px;
