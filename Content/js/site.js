@@ -32,7 +32,7 @@ const PROVIDING_AGENCY_DATE = document.getElementById('ProvidingAgency_Date');
 const DEFENDANT_DATE = document.getElementById('Defendant_DOB');
 const INDEMNITOR_DATE = document.getElementById('Indemnitor_DOB');
 
-//initially disable state and county inputs
+// disable state and county inputs
 $(function () {
     PROVIDING_AGENCY_STATE.disabled = true;
     PROVIDING_AGENCY_COUNTY.disabled = true;
@@ -165,7 +165,54 @@ JAIL_STATE.addEventListener('keyup', async function () {
 });
 
 // requesting agency
+REQUESTING_AGENCY_CITY.addEventListener('keyup', async function () {
+    if (this.value && REQUESTING_AGENCY_STATE.value && REQUESTING_AGENCY_COUNTY.value) {
+        REQUESTING_AGENCY_STATE.value = '';
+        REQUESTING_AGENCY_STATE_DROPDOWN.innerHTML = '<input class="a dropdown-item" href="#" value="Fill out city..." style="cursor: pointer;" disabled />';
+        REQUESTING_AGENCY_COUNTY.value = '';
+        REQUESTING_AGENCY_COUNTY_DROPDOWN.innerHTML = '<input class="a dropdown-item" href="#" value="Fill out city & state..." style="cursor: pointer;" disabled />';
+    }
+    
+    let city = capitalizeInput(this.value);
+    this.value = city;
 
+    let states = [];
+    let options = await getCityOrState("city", city);
+    options.forEach(option => states.push(option.state));
+
+    // put options in state dropdown
+    populateDropdown(states, REQUESTING_AGENCY_STATE, REQUESTING_AGENCY_STATE_DROPDOWN);
+
+    // if no state yet, fill cities dropdown with all possible cities regardless of state
+    if (!REQUESTING_AGENCY_STATE.value) {
+        let cities = [];
+        let options = await getCityOrState("city", JAIL_CITY.value);
+        options.forEach(option => cities.push(option.city));
+        cities = cities.filter(c => c.includes(REQUESTING_AGENCY_CITY.value));
+        populateDropdown(cities, REQUESTING_AGENCY_CITY, REQUESTING_AGENCY_CITY_DROPDOWN);
+    }
+
+    // COUNTIES uses seperate api endpoint
+    if (REQUESTING_AGENCY_STATE.value) await setCounties(REQUESTING_AGENCY_CITY.value, REQUESTING_AGENCY_STATE.value, REQUESTING_AGENCY_COUNTY, REQUESTING_AGENCY_COUNTY_DROPDOWN);
+});
+REQUESTING_AGENCY_STATE.addEventListener('keyup', async function () {
+    let state = capitalizeInput(this.value);
+    this.value = state;
+    let cities = [];
+    let options = await getCityOrState("state", state);
+    options.forEach(option => cities.push(option.city));
+
+    // only give options that meet whats in the city box already
+    cities = cities.filter(c => c.includes(REQUESTING_AGENCY_CITY.value));
+
+    // put options in city dropdown
+    populateDropdown(cities, REQUESTING_AGENCY_CITY, REQUESTING_AGENCY_CITY_DROPDOWN);
+
+    /*====================================*/
+
+    // COUNTIES uses seperate api endpoint
+    await setCounties(REQUESTING_AGENCY_CITY.value, REQUESTING_AGENCY_STATE.value, REQUESTING_AGENCY_COUNTY, REQUESTING_AGENCY_COUNTY_DROPDOWN);
+});
 
 /* =================================== UTILITIES =============================================== */
 
