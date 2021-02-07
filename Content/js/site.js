@@ -34,17 +34,30 @@ const INDEMNITOR_DATE = document.getElementById('Indemnitor_DOB');
 
 // disable state and county inputs
 $(function () {
-    PROVIDING_AGENCY_STATE.disabled = true;
-    PROVIDING_AGENCY_COUNTY.disabled = true;
-    JAIL_STATE.disabled = true;
-    JAIL_COUNTY.disabled = true;
-    REQUESTING_AGENCY_STATE.disabled = true;
+    PROVIDING_AGENCY_STATE.disabled   = true;
+    PROVIDING_AGENCY_COUNTY.disabled  = true;
+    JAIL_STATE.disabled               = true;
+    JAIL_COUNTY.disabled              = true;
+    REQUESTING_AGENCY_STATE.disabled  = true;
     REQUESTING_AGENCY_COUNTY.disabled = true;
-
-    INDEMNITOR_GENDER.disabled = true;
-    INDEMNITOR_ETHNICITY.disabled = true;
+    INDEMNITOR_GENDER.disabled        = true;
+    INDEMNITOR_ETHNICITY.disabled     = true;
 
     DEFENDANT_DATE.bold;
+});
+
+document.getElementById('submit').addEventListener('click', function () {
+
+    console.log('we submit');
+
+    PROVIDING_AGENCY_STATE.disabled = false;
+    PROVIDING_AGENCY_COUNTY.disabled = false;
+    JAIL_STATE.disabled = false;
+    JAIL_COUNTY.disabled = false;
+    REQUESTING_AGENCY_STATE.disabled = false;
+    REQUESTING_AGENCY_COUNTY.disabled = false;
+    INDEMNITOR_GENDER.disabled = false;
+    INDEMNITOR_ETHNICITY.disabled = false;
 });
 
 /* ========================================== DATES ============================================ */
