@@ -47,9 +47,6 @@ $(function () {
 });
 
 document.getElementById('submit').addEventListener('click', function () {
-
-    console.log('we submit');
-
     PROVIDING_AGENCY_STATE.disabled = false;
     PROVIDING_AGENCY_COUNTY.disabled = false;
     JAIL_STATE.disabled = false;
